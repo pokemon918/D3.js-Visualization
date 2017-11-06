@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <link rel="stylesheet" href="css/common.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="jRange/jquery.range.css" type="text/css">
+    <link rel="stylesheet" href="css/stream.css">
+    <script src="https://d3js.org/d3.v2.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+
+    <title>project</title>
+</head>
+<body>
+<div id="banner">
+    <div class="banner-title"><h1>Visualization of Alzheimer's Disease</h1></div>
+    <div id="nav">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="facts.html">FACTS</a></li>
+            <li><a href="choropleth.html">CHOROPLETH</a></li>
+            <li><a href="stream.html">STREAM</a></li>
+            <li><a href="interact.html">INTERACTION</a></li>
+        </ul>
+    </div>
+    </div>
+    <div id="content" class="cell">
+        <div class="stream">
+            <div id="stream-title">Projected Population of Year in Alzheimer's Disease Prevalence by State</div>
+            <div class="chart"></div>
+
+<p> </p>
+<div class="tool">
+
+    <p> </p>
+<button type="button" id="UPDATEBUTTON">UPDATE GRAPH</button>
+<select id="DataChoiceDropDown">
+  <option selected value="POPULATION">STATE POPULATION PROJECTION</option>
+  <option value="HCSPENDING">STATE HEALTH CARE SPENDING PROJECTION</option>
+</select>
+<select id="ClusterTypeDropDown">
+  <option selected value="SINGLE">SINGLE</option>
+  <option value="COMPLETE">COMPLETE</option>
+  <option value="AVERAGE">AVERAGE</option>
+</select>
+<select id="ClusterGeospatialDropDown">
+  <option value="CL1">Clustering  (Regional: West, Mid-West, North-East, South)</option>
+  <option value="CL2">Clustering  (Regional: Pacific, Mountain, West-North-Central, East-North-Central, New-England, Middle-Atlantic, West-South-Central, East-South-Central, South-Atlantic) *** NOT IMPLEMENTED</option>
+  <option value="CL3">Clustering  (AD Prevalence numbers in 2025) *** NOT IMPLEMENTED</option>
+  <option selected value="CLN">Clustering  (NONE)</option>
+</select>
+</div>
+        </div>
+    </div>
+    <div class="bottom">
+        </div>  
+<script type="text/javascript">
+    
+    var margin = {top: 20, right: 40, bottom: 30, left: 40};
+var width = document.body.clientWidth - margin.left - margin.right;
+var height = 400 - margin.top - margin.bottom;
+var xaxis_label_height = 20;
+var yaxis_label_height = 30;
+
+var state_elements = document.getElementById("StateDropDown");
+var datachoice_elements = document.getElementById("DataChoiceDropDown");
+var clustertype_elements = document.getElementById("ClusterTypeDropDown");
+var clustergeospatial_elements = document.getElementById("ClusterGeospatialDropDown");
+
+var svg;
+var layers;
+
+var area;
+var area2;
+var format;
+var tooltip;
+
+var x;
+var y;
+var z;
+
+var z6;
+var z7;
+var z8;
+
+var xAxis;
+var yAxis;
+var yAxisr;
+
+var line;
+
+var stack_sil;
+var stack_wig;
+var stack_exp;
+var stack_zer;
+
+var nest;
+var vertical;
+
+var xaxis_bar;
+var xaxis_tick_locations = [];
+
+var datearray = [];
+var colorrange = [];
+
+var dataspending_path = "data/stream/data_spending_cluster.csv";
+var datapopulation_path = "data/stream/data_population_cluster.csv";
+
+chart("data/stream/data_spending_cluster.csv");
+
+function parseData(data)
+{
+  data.forEach(function(d) {
+    d.date = format.parse(d.date);
+    d.value = (+d.value)/1000;
+  });
+}
+
+function lineGraph(data)
+{
+}
+
+function streamGraph(data)
+{
+  layers = stack_zer(nest.entries(data));
+
+  x.domain(d3.extent(data, function(d) { return d.date; }));
+  y.domain([0, d3.max(data, function(d) { return d.y0 + d.y; })]);
+
+  svg.selectAll(".layer")
+    .data(layers)
+    .enter().append("path")
+    .attr("class", "layer")
+    .attr("d", function(d) { return area_all(d.values); })
+    .style("fill", function(d, i) { return z(i); });
+
+  xaxis_bar = svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + (height - xaxis_label_height) + ")")
+    .call(xAxis);
+
+  svg.append("g")
+    .attr("class", "y axis")
+    .attr("transform", "translate(" + (width - yaxis_label_height) + ", 0)")
+    .call(yAxis.orient("right"));
+
+  svg.append("g")
+    .attr("class", "y axis")
+    .attr("transform", "translate(" + yaxis_label_height + ", 0)")
+    .call(yAxis.orient("left"));
+	  
+  // Label x-axis
+  svg.append("text")
+    .attr("class", "x label")
+    .attr("text-anchor", "end")
+    .attr("x", width/2)
+    .attr("y", height + xaxis_label_height)
+    .text("Year of Projection");
+
+  // Label y-axis
+  if (datachoice_elements.selectedIndex == 1)
+  {
+    svg.append("text")
+      .attr("class", "y label")
+      .attr("text-anchor", "end")
+      .attr("y", -yaxis_label_height)
+      .attr("dy", ".75em")
+      .attr("transform", "rotate(-90)")
+      .text("Healthcare Spending Cost Projection");
+  }
+  else
+  {
+    svg.append("text")
+      .attr("class", "y label")
+      .attr("text-anchor", "end")
+      .attr("y", -yaxis_label_height)
+      .attr("dy", ".75em")
+      .attr("transform", "rotate(-90)")
+      .text("Population Projection");
+  }
+	  
+  // 2011 Line - When baby boomers begin turning 65
+  svg.append("path")
+    .attr("d", line([[format.parse("1/1/29"),0],[format.parse("1/1/29"),y.domain()[1]]]))
+    .attr("stroke", "black")
+    .attr("stroke-width", 2)
+    .attr("fill", "none");
+	  
+  // 2029 Line - When all baby boomers turn 65 (Over 20 percent of US population will be over age 65+)
+  svg.append("path")
+    .attr("d", line([[format.parse("1/1/11"),0],[format.parse("1/1/11"),y.domain()[1]]]))
+    .attr("stroke", "black")
+    .attr("stroke-width", 2)
+    .attr("fill", "none");
+	
+  // Get x-axis label bar tickmark locations
+  xaxis_tick_locations = [];
+  xaxis_bar.selectAll(".tick").each(function(data, i) {
+    xaxis_tick_locations[i] = x(data);
+  });
+
+  vertical = d3.select(".chart")
+    .append("div")
+    .attr("class", "remove")
+    .style("position", "absolute")
+    .style("z-index", "19")
+    .style("width", "1px")
+    .style("height", "380px")
+    .style("top", "10px")
+    .style("bottom", "30px")
+    .style("left", "0px")
+    .style("background", "#00f");
+	  
+  d3.select(".chart")
+    .on("mousemove", function(){
+	  mousex = d3.mouse(this);
+	  mousex = mousex[0] + 5;
+	  //vertical.style("left", mousex + "px");
+	})
+    .on("mouseover", function(){
+	  mousex = d3.mouse(this);
+	  mousex = mousex[0] + 5;
+	  //vertical.style("left", mousex + "px");
+	});
+}
+
+function setupMouseOverHighlight()
+{
+  svg.selectAll(".layer")
+    .attr("opacity", 1)
+    .on("mouseover", function(d, i) {
+      svg.selectAll(".layer").transition()
+      .duration(250)
+      .attr("opacity", function(d, j) {
+        return j != i ? 0.2 : 1;
+      })
+	})
+    .on("mousemove", function(d, i) {
+      mousex = d3.mouse(this);
+      mousex = mousex[0];
+      var invertedx = x.invert(mousex);
+      invertedx = invertedx.getYear();
+      var selected = (d.values);
+      for (var k = 0; k < selected.length; k++) {
+        datearray[k] = selected[k].date.getYear();
+      }
+
+      mousedate = datearray.indexOf(invertedx);
+      pro = d.values[mousedate].value;
+
+      d3.select(this)
+      .classed("hover", true)
+      .attr("stroke", strokecolor)
+      .attr("stroke-width", "0.5px"), 
+      tooltip.html( "<p>" + d.key + "<br>" + "data:" + pro + "<br>" + "year:" + mousedate + "</p>" ).style("visibility", "visible").style("width","200px").style("height", "50px").style("background-color","black").style("color","#fff").style("padding","5px 0").style("border-radius","6px").style("position","absolute").style("z-index","1");
+    })
+    .on("mouseout", function(d, i) {
+     svg.selectAll(".layer")
+      .transition()
+      .duration(250)
+      .attr("opacity", "1");
+      d3.select(this)
+      .classed("hover", false)
+      .attr("stroke-width", "0px"), tooltip.html( "<p>" + d.key + "<br>" + pro + "</p>" ).style("visibility", "hidden");
+    });
+}
+
+function setupClickActionDropdown()
+{
+  //Event Handler for state dropdown menu
+  d3.select("#StateDropDown")
+    .on("click", function(d) {
+    //console.log("Mouse clicked!!! " + state_elements.selectedIndex + " " + state_elements.options[state_elements.selectedIndex].value);
+	  if (state_elements.selectedIndex < 51)
+	  {
+        svg.selectAll(".layer")
+          .each(function(d){
+		    d3.select(this)
+            .style("opacity", function(d) {
+              return state_elements.options[state_elements.selectedIndex].value != d.key ? 0.1 : 1;
+            })
+            .attr("d", function(d) { return area_all(d.values); })
+          });
+	  }
+    });
+}
+
+function showSpending()
+{
+  svg.selectAll(".layer").remove();  
+  svg.selectAll("text").remove();
+  svg.selectAll("path").remove();
+  svg.selectAll("g").remove();
+
+  d3.csv(dataspending_path, function(data) {
+    parseData(data);
+    streamGraph(data);
+	setupMouseOverHighlight();
+	setupClickActionDropdown();
+  });
+}
+
+function showPopulation()
+{
+  svg.selectAll(".layer").remove();  
+  svg.selectAll("text").remove();
+  svg.selectAll("path").remove();
+  svg.selectAll("g").remove();
+  
+  d3.csv(datapopulation_path, function(data) {
+    parseData(data);
+	streamGraph(data);
+	setupMouseOverHighlight();
+    setupClickActionDropdown();
+  });
+}
+
+function chart(csvpath) {
+// Qualitative Color Scheme 12 colors
+// From: http://colorbrewer2.org
+//colorrange = ["#8dd3c7", "#ffffb3", "#bebada", "#fb8072", "#80b1d3", "#fdb462", "#b3de69", "#fccde5", "#d9d9d9", "#bc80bd", "#ccebc5", "#ffed6f"];
+colorrange = ["#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f", "#ff7f00", "#cab2d6", "#6a3d9a", "#ffff99", "#b15928"];
+colorrange6 = ["#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c"];
+colorrange7 = ["#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f"];
+colorrange8 = ["#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f", "#ff7f00"];
+strokecolor = colorrange[0];
+
+format = d3.time.format("%m/%d/%y");
+
+tooltip = d3.select("body")
+  .append("div")
+  .attr("class", "remove")
+  .style("position", "absolute")
+  .style("z-index", "20")
+  .style("visibility", "hidden")
+  .style("top", "30px")
+  .style("left", "55px");
+	
+x = d3.time.scale()
+  .range([yaxis_label_height, width-yaxis_label_height]);
+
+y = d3.scale.linear()
+  .range([height-xaxis_label_height, 0]);
+
+z = d3.scale.ordinal()
+  .range(colorrange);
+  
+z6 = d3.scale.ordinal()
+  .range(colorrange6);
+  
+z7 = d3.scale.ordinal()
+  .range(colorrange7);
+  
+z8 = d3.scale.ordinal()
+  .range(colorrange8);
+
+xAxis = d3.svg.axis()
+  .scale(x)
+  .orient("bottom")
+//  .ticks(d3.time.weeks);
+//  .ticks(d3.time.months);
+  .ticks(d3.time.years);
+
+yAxis = d3.svg.axis()
+  .scale(y)
+  .ticks(10, "s");
+
+yAxisr = d3.svg.axis()
+  .scale(y);
+	
+line = d3.svg.line()
+  .x(function(d) {
+    //console.log("Hello " + d[0] + " " + x(d[0]));
+    return x(d[0]); })
+  .y(function(d) {
+	//console.log("Hello " + d[1] + " " + y(d[1]));
+	return y(d[1]); })
+  .interpolate("linear");
+
+stack_sil = d3.layout.stack()
+  .offset("silhouette")
+  .values(function(d) { return d.values; })
+  .x(function(d) { return d.date; })
+  .y(function(d) { return d.value; });
+  
+stack_wig = d3.layout.stack()
+  .offset("wiggle")
+  .values(function(d) { return d.values; })
+  .x(function(d) { return d.date; })
+  .y(function(d) { return d.value; });
+  
+stack_exp = d3.layout.stack()
+  .offset("expand")
+  .values(function(d) { return d.values; })
+  .x(function(d) { return d.date; })
+  .y(function(d) { return d.value; });
+  
+stack_zer = d3.layout.stack()
+  .offset("zero")
+  .values(function(d) { return d.values; })
+  .x(function(d) { return d.date; })
+  .y(function(d) { return d.value; });
+
+nest = d3.nest()
+  .key(function(d) { return d.key; });
+  
+area_all = d3.svg.area()
+  .interpolate("cardinal")
+  .x(function(d) { return x(d.date); })
+  .y0(function(d) { return y(d.y0); })
+  .y1(function(d) { return y(d.y0 + d.y); });
+  
+area_single = d3.svg.area()
+  .interpolate("cardinal")
+  .x(function(d) { return x(d.date); })
+  .y0(function(d) { return y(0); })
+  .y1(function(d) { return y(d.y); });
+
+svg = d3.select(".chart").append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  
+  if (datachoice_elements.selectedIndex == 1)
+  {    
+	if (clustergeospatial_elements.selectedIndex == 0)
+	{
+	  dataspending_path = "data/stream/data_spending_cluster_WMSNE.csv";
+	}
+	else if (clustergeospatial_elements.selectedIndex == 1)
+	{
+	  dataspending_path = "data/stream/data_spending_cluster_WMSNE.csv";
+	}
+	else
+	{
+	  dataspending_path = "data/stream/data_spending_cluster.csv";
+	}
+	
+    showSpending();
+  }
+  else
+  {
+	if (clustergeospatial_elements.selectedIndex == 0)
+	{
+	  datapopulation_path = "data/stream/data_population_cluster_WMSNE.csv";
+	}
+	else if (clustergeospatial_elements.selectedIndex == 1)
+	{
+	  datapopulation_path = "data/stream/data_population_cluster_WMSNE.csv";
+	}
+	else
+	{
+	  datapopulation_path = "data/stream/data_population_cluster.csv";
+	}
+	
+	showPopulation();
+  }
+}
+
+document.getElementById("UPDATEBUTTON").onclick = function()
+{
+  console.log("Data to display: " + datachoice_elements.selectedIndex + " " + datachoice_elements.options[datachoice_elements.selectedIndex].value);
+  
+  if (datachoice_elements.selectedIndex == 1)
+  {    
+	if (clustergeospatial_elements.selectedIndex == 0)
+	{
+	  dataspending_path = "data/stream/data_spending_cluster_WMSNE.csv";
+	}
+	else if (clustergeospatial_elements.selectedIndex == 1)
+	{
+	  dataspending_path = "data/stream/data_spending_cluster_WMSNE.csv";
+	}
+	else
+	{
+	  dataspending_path = "data/stream/data_spending_cluster.csv";
+	}
+	
+    showSpending();
+  }
+  else
+  {
+	if (clustergeospatial_elements.selectedIndex == 0)
+	{
+	  datapopulation_path = "data/stream/data_population_cluster_WMSNE.csv";
+	}
+	else if (clustergeospatial_elements.selectedIndex == 1)
+	{
+	  datapopulation_path = "data/stream/data_population_cluster_WMSNE.csv";
+	}
+	else
+	{
+	  datapopulation_path = "data/stream/data_population_cluster.csv";
+	}
+	
+	showPopulation();
+  }
+}
+
+    </script>
+</body>
+</html>

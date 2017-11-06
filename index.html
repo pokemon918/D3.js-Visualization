@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <link rel="stylesheet" href="css/common.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="jRange/jquery.range.css" type="text/css">
+    <link rel="stylesheet" href="css/bubble.css" type="text/css">
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="js/d3-tip.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <title>Visualization of Alzheimer's Disease</title>
+</head>
+<body>
+<div id="banner">
+    <div class="banner-title"><h1>Visualization of Alzheimer's Disease</h1></div>
+    <div id="nav">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="facts.html">FACTS</a></li>
+            <li><a href="choropleth.html">CHOROPLETH</a></li>
+            <li><a href="stream.html">STREAM</a></li>
+            <li><a href="interact.html">INTERACTION</a></li>
+        </ul>
+    </div>
+    </div>
+    <div id="content" class="cell">
+        <div class="bubble" id="scatter">
+            <div id="tooltip" class="hidden">
+		      <p><span id="states-label"></span></p>
+		    </div>
+        <div id="bubble-title">2015 Bubble chart with AD numbers and cost per state</div>
+        <div id="scatter"></div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="time">
+            <input class="single-slider" type="hidden" value="0"/>
+        </div>
+        </div>  
+<script src="jRange/jquery.range.js"></script>
+<script type="text/javascript">
+    var onstatechange;
+        $(document).ready(function(){
+            
+            $('.single-slider').jRange({
+                from: 2015,
+                to: 2025,
+                step: 1,
+                scale: [2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],
+                format: '%s',
+                width: 800,
+                showLabels: true,
+                snap: true,
+            });
+            
+            });
+                var year_old = 2015;
+            myFunction("2015");
+            
+            setInterval(function(){ 
+                var year = $(".single-slider").val();
+                
+                if(parseInt(year)!=parseInt(year_old)){
+                    var title = year+" Bubble chart with AD numbers and cost per state"
+                    document.getElementById("bubble-title").innerHTML= title;
+                    d3.select("svg").remove();
+                    myFunction(year);
+                    year_old = year;
+                }
+            }, 100);
+            
+    function myFunction(year){
+              var margin = { top: 50, right: 300, bottom: 50, left: 50 },
+    outerWidth = 1050,
+    outerHeight = 480,
+    width = outerWidth - margin.left - margin.right,
+    height = outerHeight - margin.top - margin.bottom;
+    
+
+var x = d3.scale.linear()
+    .range([0, width]).nice();
+
+var y = d3.scale.linear()
+    .range([height, 0]).nice();
+
+d3.csv("data/bubble/"+year+".csv", function(data) {
+  data.forEach(function(d) {
+    d.AD = +d.AD;
+    d.cost = +d.cost;
+    d.classification=+d.classification;
+    d.medicare=+d.medicare;
+  });
+
+    x.domain([0, 1200]).nice;
+    y.domain([0, 9000]).nice();
+  var xAxis = d3.svg.axis()
+      .scale(x)
+      .orient("bottom")
+      .tickSize(-height);
+
+  var yAxis = d3.svg.axis()
+      .scale(y)
+      .orient("left")
+      .tickSize(-width);
+
+  var color = d3.scale.category10();
+
+  var tip = d3.tip()
+      .attr("class", "d3-tip")
+      .offset([-10, 0])
+      .html(function(d) {
+        return d.State+"<br>"+
+        "AD numbers"+ ": " + d.AD + "<br>" + "Cost in AD" + ": " + d.cost+ "<br>" + 
+        "Slope: "+ (d.cost/d.AD).toFixed(4)+"<br>"+"Total Health Spending: "+ d.medicare;
+      });
+
+  var zoomBeh = d3.behavior.zoom()
+      .x(x)
+      .y(y)
+      .scaleExtent([0, 500])
+      .on("zoom", zoom);
+
+  var svg = d3.select("#scatter")
+    .append("svg")
+      .attr("width", 800)
+      .attr("height", outerHeight)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+      .call(zoomBeh);
+
+  svg.call(tip);
+
+  svg.append("rect")
+      .attr("width", width)
+      .attr("height", height);
+
+  svg.append("g")
+      .classed("x axis", true)
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+    .append("text")
+      .classed("label", true)
+      .attr("x", width)
+      .attr("y", margin.bottom - 10)
+      .style("text-anchor", "end")
+      .text("AD Numbers of Americans Age over 65+ (in thousands)");
+
+  svg.append("g")
+      .classed("y axis", true)
+      .call(yAxis)
+    .append("text")
+      .classed("label", true)
+      .attr("transform", "rotate(-90)")
+      .attr("y", -margin.left)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Cost in AD(in millions)");
+
+  var objects = svg.append("svg")
+      .classed("objects", true)
+      .attr("width", width)
+      .attr("height", height);
+
+  objects.append("svg:line")
+      .classed("axisLine hAxisLine", true)
+      .attr("x1", 0)
+      .attr("y1", 0)
+      .attr("x2", width)
+      .attr("y2", 0)
+      .attr("transform", "translate(0," + height + ")");
+
+  objects.append("svg:line")
+      .classed("axisLine vAxisLine", true)
+      .attr("x1", 0)
+      .attr("y1", 0)
+      .attr("x2", 0)
+      .attr("y2", height);
+
+  objects.selectAll(".dot")
+      .data(data)
+    .enter().append("circle")
+      .classed("dot", true)
+      .attr("r", function (d) { return d.medicare*0.0006;; })
+      .attr("transform", transform)
+      .style("fill", function(d) { return color(d.classification); })
+      .on("mouseover", tip.show)
+      .on("mouseout", tip.hide);
+
+    var legend = svg.append("g")
+                    .attr("trandform","translate(0,"+(height-50)+")");
+    
+  legend.append("svg:image")
+        .attr("x", 520)
+        .attr("y", 230)
+        .attr("width", "164")
+        .attr("height", "145")
+        .attr("style", "outline: thin solid black;")  
+        .attr("xlink:href", "data/legend.png");
+
+        d3.select("input").on("click", change);
+
+  d3.select("input").on("click", change);
+
+  function change() {
+    var svg = d3.select("#scatter").transition();
+
+    svg.select(".x.axis").duration(750).call(xAxis).select(".label").text("AD");
+
+    objects.selectAll(".dot").transition().duration(1000).attr("transform", transform);
+  }
+
+  function zoom() {
+    svg.select(".x.axis").call(xAxis);
+    svg.select(".y.axis").call(yAxis);
+
+    svg.selectAll(".dot")
+        .attr("transform", transform);
+  }
+
+  function transform(d) {
+    return "translate(" + x(d.AD) + "," + y(d.cost) + ")";
+  }
+});
+
+    
+    }
+    </script>
+</body>
+</html>

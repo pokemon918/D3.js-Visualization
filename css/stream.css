@@ -1,0 +1,24 @@
+body {
+  font: 10px sans-serif;
+}
+
+.chart { 
+  background: #fff;
+}
+
+p {
+  font: 12px helvetica;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 2px;
+  shape-rendering: crispEdges;
+}
+
+button {
+  position:relative;
+  left: 0;
+  bottom:0;
+}

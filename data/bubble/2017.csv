@@ -1,0 +1,52 @@
+State,AD,cost,medicare,clustering,classification
+Alabama, 90, 797, 5697, 1, 3
+Alaska, 7.1, 59, 1649, 1, 4
+Arizona, 130, 332, 11149, 1, 1
+Arkansas, 55, 335, 6169, 1, 2
+California, 630, 3464, 95791, 2, 1
+Colorado, 69, 526, 8014, 1, 1
+Connecticut, 75, 880, 7340, 1, 3
+Delaware, 18, 212, 2185, 1, 3
+District of Columbia, 9, 115, 2654, 1, 4
+Florida, 520, 2279, 22571, 2, 3
+Georgia, 140, 1038, 10740, 1, 3
+Hawaii, 27, 196, 2141, 1, 4
+Idaho, 24, 129, 1910, 1, 1
+Illinois, 220, 1565, 18885, 1, 3
+Indiana, 110, 913, 10115, 1, 3
+Iowa, 64, 598, 4781, 1, 2
+Kansas, 52, 403, 3347, 1, 2
+Kentucky, 70, 685, 9833, 1, 3
+Louisiana, 85, 658, 8246, 1, 2
+Maine, 27, 187, 2661, 1, 3
+Maryland, 100, 1042, 10210, 1, 3
+Massachusetts, 120, 1550, 16764, 1, 3
+Michigan, 180, 1299, 17174, 1, 3
+Minnesota, 92, 781, 11650, 1, 2
+Mississippi, 53, 536, 5471, 1, 3
+Missouri, 110, 843, 10130, 1, 2
+Montana, 20, 139, 1265, 1, 1
+Nebraska, 33, 310, 2059, 1, 2
+Nevada, 43, 158, 3404, 1, 1
+New Hampshire, 24, 225, 1950, 1, 3
+New Jersey, 170, 1887, 15424, 2, 3
+New Mexico, 38, 177, 5232, 1, 1
+New York, 390, 4598, 59556, 2, 3
+North Carolina, 160, 1112, 14273, 1, 3
+North Dakota, 14, 166, 7, 1, 2
+Ohio, 210, 2242, 22969, 2, 3
+Oklahoma, 63, 440, 4899, 1, 2
+Oregon, 63, 222, 9070, 1, 1
+Pennsylvania, 270, 3236, 24806, 2, 3
+Rhode Island, 23, 416, 2860, 1, 3
+South Carolina, 86, 544, 6092, 1, 3
+South Dakota, 17, 157, 909, 1, 2
+Tennessee, 110, 939, 9869, 1, 3
+Texas, 360, 2493, 36493, 2, 2
+Utah, 30, 152, 2404, 1, 1
+Vermont, 12, 98, 1698, 1, 3
+Virginia, 140, 826, 8918, 1, 3
+Washington, 110, 461, 11529, 1, 1
+West Virginia, 37, 394, 3996, 1, 3
+Wisconsin, 110, 687, 8450, 1, 3
+Wyoming, 9.4, 71, 675, 1, 1

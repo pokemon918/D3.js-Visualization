@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <link rel="stylesheet" href="css/common.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="jRange/jquery.range.css" type="text/css">
+    <script src="lib/d3.js"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <title>project</title>
+</head>
+<body>
+<div id="banner">
+    <div class="banner-title"><h1>Visualization of Alzheimer's Disease</h1></div>
+    <div id="nav">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="facts.html">FACTS</a></li>
+            <li><a href="choropleth.html">CHOROPLETH</a></li>
+            <li><a href="stream.html">STREAM</a></li>
+            <li><a href="interact.html">INTERACTION</a></li>
+        </ul>
+    </div>
+    </div>
+    <div id="content">
+        <div class="box cell word">
+            <div id="wordle-title">Wordle Visualization of AD family caregivers through their blogs</div>
+            <img src="data/az-wordstream.png" style="width:536px; height:313px; margin:7% 6%; "></div>
+        <div class="box cell bar">
+                <div id="Bar-title">Estimated Lifetime Risk for Alzheimer by Age and Sex</div>
+                <div id="Bar"></div>
+        </div>
+    </div>
+    <div class="bottom"></div>  
+    <script src="js/bar.js"></script>
+</body>
+</html>

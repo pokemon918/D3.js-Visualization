@@ -1,0 +1,50 @@
+===============================================================================
+US Population projections using 2000 census data
+===============================================================================
+https://www.census.gov/population/projections/data/state/projectionsagesex.html
+
+Detailed Data Files 
+File Layouts [DOC - 21k]
+File 1. Annual projections of total population, male, and female	[XLS - 38k]	[CSV - 61k]
+File 2. Annual projections by 5-year and selected age groups by sex	[XLS - 874k]	[CSV - 1.2M]
+File 3. Annual projections by single year of age	[XLS - 838k]	[CSV - 1.2M]
+File 4. Annual projections by single year of age by sex	[XLS - 2.4M]	[CSV - 3.5M]
+
+===============================================================================
+Arizona population projections
+===============================================================================
+https://population.az.gov/population-projections
+
+HIGH SERIES:
+
+Arizona - High Series, 2015-2050 Projections (XLSX 129 KB)
+
+Apache County - High Series, 2015-2050 Projections (XLSX 129 KB)
+
+Cochise County - High Series, 2015-2050 Projections (XLSX 132 KB)
+
+Coconino County - High Series, 2015-2050 Projections (XLSX 129 KB)
+
+Gila County - High Series, 2015-2050 Projections (XLSX 128 KB)
+
+Graham County - High Series, 2015-2050 Projections (XLSX 129 KB)
+
+Greenlee County - High Series, 2015-2050 Projections (XLSX 128 KB)
+
+La Paz County - High Series, 2015-2050 Projections (XLSX 128 KB)
+
+Maricopa County - High Series, 2015-2050 Projections (XLSX 128 KB)
+
+Mohave County - High Series, 2015-2050 Projections (XLSX 128 KB)
+
+Navajo County - High Series, 2015-2050 Projections (XLSX 129 KB)
+
+Pima County - High Series, 2015-2050 Projections (XLSX 129 KB)
+
+Pinal County - High Series, 2015-2050 Projections (XLSX 129 KB)
+
+Santa Cruz County - High Series, 2015-2050 Projections (XLSX 129 KB)
+
+Yavapai County - High Series, 2015-2050 Projections (XLSX 128 KB)
+
+Yuma County - High Series, 2015-2050 Projections (XLSX 129 KB)

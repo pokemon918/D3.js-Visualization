@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="fb: http://www.facebook.com/2008/fbml content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ og: http://ogp.me/ns# rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#">
+<head>
+  <link rel="profile" href="http://www.w3.org/1999/xhtml/vocab" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1026.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="https://population.az.gov/sites/all/themes/az_gov/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="canonical" href="/population-projections" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="shortlink" href="/node/871" />
+  <title>Population Projections | Office of Economic Opportunity</title>
+  <link type="text/css" rel="stylesheet" href="https://population.az.gov/sites/default/files/css/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://population.az.gov/sites/default/files/css/css_tGTNtRAsNJmcVz4r7F6YCijbrQGDbBmziHSrRd1Stqc.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://population.az.gov/sites/default/files/css/css_NxES2J1cO9S2eEYfbAjXUKuSn3r3PlOTKBzWCGLXLyI.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://population.az.gov/sites/default/files/css/css_XyELJoL1qsdMTQdFrViNSLevfcrzPM23hhX_NrpUCh0.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://population.az.gov/sites/default/files/event_calendar_colors/event_calendar_colors.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://population.az.gov/sites/default/files/css/css_-oojR6QRV3ffRYuC0ITtbBKiXzzlwfhhYYfuHfUTAZA.css" media="all" />
+<link type="text/css" rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.2.0/css/bootstrap.min.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://population.az.gov/sites/default/files/css/css_jqmfmPn37i3CF0nZtDnS2EVXZe8zFEzgDA6q3IQKid0.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://population.az.gov/sites/default/files/css/css_EY-NPmtTVFQrR1KwOzl4KKAOrKVnLpafcrPSlqWDwuM.css" media="(min-width:600px)" />
+<link type="text/css" rel="stylesheet" href="https://population.az.gov/sites/default/files/css/css_JYdL4VrrHN51QWk22Pft5q9Hhu3p2WUdNTTpblqv5CI.css" media="(min-width:768px)" />
+<link type="text/css" rel="stylesheet" href="https://population.az.gov/sites/default/files/css/css_GclIRYO9mLEEA2Qzh1vwOcQ8crXFJdXzW9nffKwPrD0.css" media="(min-width:920px)" />
+<link type="text/css" rel="stylesheet" href="https://population.az.gov/sites/default/files/css/css_a6r0Z_j7LfcBY8pfA-m2JnlXfqNQuFBTjmb-REFi--8.css" media="(min-width:1240px)" />
+<link type="text/css" rel="stylesheet" href="https://population.az.gov/sites/default/files/css_injector/css_injector_4.css?oo0tdv" media="all" />
+  <!-- HTML5 element support for IE6-8 -->
+  <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="//code.jquery.com/jquery-1.8.3.min.js"></script>
+<script>window.jQuery || document.write("<script src='/sites/all/modules/contrib/jquery_update/replace/jquery/1.8/jquery.min.js'>\x3C/script>")</script>
+<script src="https://population.az.gov/sites/default/files/js/js_aczm2rRgH_slWBPnvD3KMrK7rwa1i99HOq8IUAb99Co.js"></script>
+<script src="https://static.az.gov/sliver/sliver.js?oo0tdv"></script>
+<script src="//code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
+<script>window.jQuery.ui || document.write("<script src='/sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery-ui.min.js'>\x3C/script>")</script>
+<script src="https://population.az.gov/sites/default/files/js/js_BLxotNs2yt7YGlf9QRI9L9AMfdnkQfnN-_ADBTW3SiE.js"></script>
+<script src="//cdn.jsdelivr.net/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://population.az.gov/sites/default/files/js/js_uvgUomgWRDecmOPO_7f75pcoYGSMgROXSc-zcnF9t5Y.js"></script>
+<script src="https://population.az.gov/sites/default/files/js/js_7jOmgaIE_bquyUTBctVVHp8uYDhGJWbIc0cFOhrBtII.js"></script>
+<script>jQuery(document).ready(function($) { 
+    $.expr[':'].regex = function(elem, index, match) {
+            var matchParams = match[3].split(','),
+            validLabels = /^(data|css):/,
+            attr = {
+                method: matchParams[0].match(validLabels) ? 
+                matchParams[0].split(':')[0] : 'attr',
+                property: matchParams.shift().replace(validLabels,'')
+            },
+            regexFlags = 'ig',
+            regex = new RegExp(matchParams.join('').replace(/^\s+|\s+$/g,''), regexFlags);
+            return regex.test(jQuery(elem)[attr.method](attr.property));
+        }
+    });</script>
+<script src="https://population.az.gov/sites/default/files/js/js_3vt4MDCvOcet9FqQBjuCWCoI19VMtaYSh23TDyI9cJc.js"></script>
+<script>window.CKEDITOR_BASEPATH = '/sites/all/libraries/ckeditor/'</script>
+<script src="https://population.az.gov/sites/default/files/js/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-51918641-31", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");</script>
+<script src="https://population.az.gov/sites/default/files/js/js_ZZ5EZ4W1vht3dtOY7rZGBOFtyooEPLqZvWzfXWluQrc.js"></script>
+<script src="https://population.az.gov/sites/default/files/js/js_yo9QJ55hHiYOUgCDdekfA51z0MNyY09hHAlJw4Uz1s8.js"></script>
+<script src="https://population.az.gov/sites/default/files/js_injector/js_injector_1.js?oo0tdv"></script>
+<script>jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"az_gov","theme_token":"vrLXZONkxRBY1Zf39rTuocxdfppOIGYTK7SsugIT7Zk","jquery_version":"1.8","js":{"sites\/all\/themes\/bootstrap\/js\/bootstrap.js":1,"\/\/code.jquery.com\/jquery-1.8.3.min.js":1,"0":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"https:\/\/static.az.gov\/sliver\/sliver.js":1,"\/\/code.jquery.com\/ui\/1.10.2\/jquery-ui.min.js":1,"1":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/misc\/jquery.form.min.js":1,"misc\/ajax.js":1,"sites\/all\/modules\/contrib\/jquery_update\/js\/jquery_update.js":1,"\/\/cdn.jsdelivr.net\/bootstrap\/3.2.0\/js\/bootstrap.min.js":1,"sites\/all\/modules\/contrib\/comment_notify\/comment_notify.js":1,"sites\/all\/modules\/contrib\/extlink\/extlink.js":1,"sites\/all\/libraries\/colorbox\/jquery.colorbox-min.js":1,"sites\/all\/modules\/contrib\/colorbox\/js\/colorbox.js":1,"sites\/all\/modules\/contrib\/colorbox\/styles\/default\/colorbox_style.js":1,"sites\/all\/modules\/contrib\/event_calendar\/event_popup\/js\/event_popup.js":1,"sites\/all\/modules\/contrib\/event_calendar\/event_popup\/js\/event_popup_validate.js":1,"2":1,"sites\/all\/modules\/contrib\/views\/js\/base.js":1,"sites\/all\/themes\/bootstrap\/js\/misc\/_progress.js":1,"sites\/all\/modules\/contrib\/views\/js\/ajax_view.js":1,"3":1,"sites\/all\/modules\/contrib\/google_analytics\/googleanalytics.js":1,"4":1,"sites\/all\/themes\/az_gov\/js\/global.js":1,"sites\/all\/themes\/bootstrap\/js\/misc\/ajax.js":1,"sites\/all\/themes\/bootstrap\/js\/modules\/views\/js\/ajax_view.js":1,"sites\/default\/files\/js_injector\/js_injector_1.js":1},"css":{"modules\/system\/system.base.css":1,"misc\/ui\/jquery.ui.core.css":1,"misc\/ui\/jquery.ui.theme.css":1,"misc\/ui\/jquery.ui.button.css":1,"misc\/ui\/jquery.ui.resizable.css":1,"misc\/ui\/jquery.ui.dialog.css":1,"sites\/all\/modules\/contrib\/comment_notify\/comment_notify.css":1,"sites\/all\/modules\/contrib\/calendar\/css\/calendar_multiday.css":1,"sites\/all\/modules\/contrib\/date\/date_api\/date.css":1,"sites\/all\/modules\/contrib\/date\/date_popup\/themes\/datepicker.1.7.css":1,"sites\/all\/modules\/contrib\/date\/date_repeat_field\/date_repeat_field.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"sites\/all\/modules\/contrib\/extlink\/extlink.css":1,"sites\/all\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/contrib\/colorbox\/styles\/default\/colorbox_style.css":1,"sites\/all\/modules\/contrib\/ctools\/css\/ctools.css":1,"https:\/\/population.az.gov\/sites\/default\/files\/event_calendar_colors\/event_calendar_colors.css":1,"sites\/all\/modules\/contrib\/event_calendar\/event_popup\/css\/event_popup.css":1,"\/\/cdn.jsdelivr.net\/bootstrap\/3.2.0\/css\/bootstrap.min.css":1,"sites\/all\/themes\/bootstrap\/css\/3.2.0\/overrides.min.css":1,"sites\/all\/themes\/az_gov\/css\/contextual.css":1,"sites\/all\/themes\/az_gov\/css\/colors.css":1,"sites\/all\/themes\/az_gov\/css\/reset.css":1,"sites\/all\/themes\/az_gov\/css\/global.css":1,"sites\/all\/themes\/az_gov\/css\/nodes.css":1,"sites\/all\/themes\/az_gov\/css\/min-600.css":1,"sites\/all\/themes\/az_gov\/css\/min-768.css":1,"sites\/all\/themes\/az_gov\/css\/min-920.css":1,"sites\/all\/themes\/az_gov\/css\/min-1240.css":1,"sites\/default\/files\/css_injector\/css_injector_4.css":1}},"colorbox":{"opacity":"0.85","current":"{current} of {total}","previous":"\u00ab Prev","next":"Next \u00bb","close":"Close","maxWidth":"98%","maxHeight":"98%","fixed":true,"mobiledetect":true,"mobiledevicewidth":"480px"},"event_popup":{"classes":"","defaults":"width:300;height:auto;position:[center,60]","selector":"content","content_type":"event_calendar","op":false},"views":{"ajax_path":"\/views\/ajax","ajaxViews":{"views_dom_id:177d8f111a6c6d83c2940addb7774718":{"view_name":"home_page","view_display_id":"block_1","view_args":"871","view_path":"node\/871","view_base_path":null,"view_dom_id":"177d8f111a6c6d83c2940addb7774718","pager_element":0}}},"extlink":{"extTarget":"_blank","extClass":0,"extLabel":"(link is external)","extImgClass":0,"extSubdomains":1,"extExclude":"","extInclude":"\\.pdf","extCssExclude":"","extCssExplicit":"","extAlert":0,"extAlertText":"This link will take you to an external web site.","mailtoClass":0,"mailtoLabel":"(link sends e-mail)"},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip|xlsx|docx","trackColorbox":1},"urlIsAjaxTrusted":{"\/population-projections":true},"bootstrap":{"anchorsFix":1,"anchorsSmoothScrolling":1,"formHasError":1,"popoverEnabled":1,"popoverOptions":{"animation":1,"html":0,"placement":"right","selector":"","trigger":"click","triggerAutoclose":1,"title":"","content":"","delay":0,"container":"body"},"tooltipEnabled":1,"tooltipOptions":{"animation":1,"html":0,"placement":"auto left","selector":"","trigger":"hover focus","delay":0,"container":"body"}}});</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-871 node-type-blog-entry">
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="page">
+  <div id="zone-branding" class="zone">
+  <div class="silhouette">
+    <div id="region-branding" class="clearfix">
+              <div class="site-details clearfix">
+          
+                      <div class="site-info">
+                              <div class="site-name">
+                    <a  href="/">
+                      Office of Economic Opportunity                    </a>
+                </div>
+                                            <div class="site-slogan">
+                  Arizona Population                </div>
+                          </div>
+                  </div>
+                      <div class="region region-branding">
+    
+<div id="block-search-form" class="block block-search">
+<div class="block-inner clearfix">
+      
+  <div class="content" >
+    <form class="form-search content-search" action="/population-projections" method="post" id="search-block-form" accept-charset="UTF-8"><div><div title = "Search">
+        <div class="input-group"><input title="Search" placeholder="Search" class="form-control form-text" type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" /><span class="input-group-btn"><button type="submit" class="btn btn-primary"><span class="icon glyphicon glyphicon-search" aria-hidden="true"></span></button></span></div><div class="form-actions form-wrapper form-group" id="edit-actions"><button class="element-invisible btn btn-primary form-submit" type="submit" id="edit-submit" name="op" value="Search">Search</button>
+</div><input type="hidden" name="form_build_id" value="form-W3sZLZWNEWEtWg-B71m8NHynvqq62HO7JQmOu8MmB3U" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>  </div>
+</div>
+</div>  </div>
+          </div>
+    <div id="mobile-menu">
+    </div>
+            <div class="region region-menu">
+    
+<div id="block-system-main-menu" class="block block-system block-menu">
+<div class="block-inner clearfix">
+      
+  <div class="content" >
+    <ul class="menu nav"><li class="first leaf menu-li-home"><a href="/" title="Home">Home</a></li>
+<li class="leaf menu-li-population-estimates"><a href="/population-estimates" title="">Population Estimates</a></li>
+<li class="leaf active-trail active menu-li-population-projections"><a href="/population-projections" class="active-trail active">Population Projections</a></li>
+<li class="leaf menu-li-policies"><a href="/policies" title="">Policies</a></li>
+<li class="leaf menu-li-state-data-center"><a href="/state-data-center" title="">State Data Center</a></li>
+<li class="leaf menu-li-census-data"><a href="/census-data" title="">Census Data</a></li>
+<li class="last leaf menu-li-geodata-catalog"><a href="/geodata-catalog" title="">Geodata Catalog</a></li>
+</ul>  </div>
+</div>
+</div>  </div>
+      </div>
+</div><div id="zone-content" class="zone">
+  <a name="main-content"></a>
+
+
+  <div id="preface-group" class="clearfix">
+              </div>
+
+  
+  <div id="content-wrapper" class="clearfix">
+
+
+    
+
+    <div id="content" class="col-sm-8 col-md-8 main-region contextual-links-region ">
+      <div id="region-content" class="content">
+
+        <h1 id="page-title">
+          Population Projections        </h1>
+
+        
+                  <div class="region region-content">
+    
+<div id="block-system-main" class="block block-system">
+<div class="block-inner clearfix">
+      
+  <div class="content" >
+    <div id="node-871" class="node node-blog-entry">
+  <div class="node-inner node-content">
+
+    
+    <div class="content">
+                  <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><h2>VISION</h2>
+<p>To maintain a sound accurate population growth model consistent with sound demographic projection principles for counties and jurisdictions within Arizona and the state as a whole.</p>
+<h2>MISSION</h2>
+<p>To provide reliable unbiased projections of future population growth and a single state repository for current population references enabling sound planning and decision making by government and private entities.</p>
+<h2>DATA TABLES</h2>
+<p><strong>2015-2050 STATE AND COUNTY POPULATION PROJECTIONS</strong></p>
+<p>Population projections are made for July 1 of each year in the projection period. In addition to the baseline projections (the medium series), a low series and a high series were also produced using alternative assumptions.</p>
+<h3>SUMMARY TABLES</h3>
+<p>Projected total population for each year between 2015 and 2050 for the state, counties, the Phoenix Metro Area, the Tucson Metro Area, and Balance of State:</p>
+<p><a href="/sites/default/files/documents/files/pop-prj-sumtable-low-series2015.xlsx" target="_blank">Low Series, All Areas, 2015-2050 Population Projections (XLSX 15 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-sumtable-medium-series2015.xlsx" target="_blank">Medium Series, All Areas, 2015-2050 Population Projections (XLSX 15 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-sumtable-high-series2015.xlsx" target="_blank">High Series, All Areas, 2015-2050 Population Projections (XLSX 15 KB)</a></p>
+<h3>DETAIL TABLES</h3>
+<p>Projected total population, components of population change, population by sex and age group, population by sex and single year of age for age group 19 and younger,population by race and Hispanic origin:</p>
+<h3>Medium Series:</h3>
+<p><a href="/sites/default/files/documents/files/pop-prj-04-medium-series2015.xlsx" target="_blank">Arizona - Medium Series, 2015-2050 Projections (XLSX 128 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04001-medium-series2015.xlsx" target="_blank">Apache County - Medium Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04003-medium-series2015.xlsx" target="_blank">Cochise County - Medium Series, 2015-2050 Projections (XLSX 130 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04005-medium-series2015.xlsx" target="_blank">Coconino County - Medium Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04007-medium-series2015.xlsx" target="_blank">Gila County - Medium Series, 2015-2050 Projections (XLSX 128 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04009-medium-series2015.xlsx" target="_blank">Graham County - Medium Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04011-medium-series2015.xlsx" target="_blank">Greenlee County - Medium Series, 2015-2050 Projections (XLSX 128 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04012-medium-series2015.xlsx" target="_blank">La Paz County - Medium Series, 2015-2050 Projections (XLSX 128 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04013-medium-series2015.xlsx" target="_blank">Maricopa County - Medium Series, 2015-2050 Projections (XLSX 128 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04015-medium-series2015.xlsx" target="_blank">Mohave County - Medium Series, 2015-2050 Projections (XLSX 128 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04017-medium-series2015.xlsx" target="_blank">Navajo County - Medium Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04019-medium-series2015.xlsx" target="_blank">Pima County - Medium Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04021-medium-series2015.xlsx" target="_blank">Pinal County - Medium Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04023-medium-series2015.xlsx" target="_blank">Santa Cruz County - Medium Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04025-medium-series2015.xlsx" target="_blank">Yavapai County - Medium Series, 2015-2050 Projections (XLSX 128 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04027-medium-series2015.xlsx" target="_blank">Yuma County - Medium Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<h3>Low Series:</h3>
+<p><a href="/sites/default/files/documents/files/pop-prj-04-low-series2015.xlsx" target="_blank">Arizona - Low Series, 2015-2050 Projections (XLSX 128 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04001-low-series2015.xlsx" target="_blank">Apache County - Low Series, 2015-2050 Projections (XLSX 130 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04003-low-series2015.xlsx" target="_blank">Cochise County - Low Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04005-low-series2015.xlsx" target="_blank">Coconino County - Low Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04007-low-series2015.xlsx" target="_blank">Gila County - Low Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04009-low-series2015.xlsx" target="_blank">Graham County - Low Series, 2015-2050 Projections (XLSX 128 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04011-low-series2015.xlsx" target="_blank">Greenlee County - Low Series, 2015-2050 Projections (XLSX 128 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04012-low-series2015.xlsx" target="_blank">La Paz County - Low Series, 2015-2050 Projections (XLSX 128 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04013-low-series2015.xlsx" target="_blank">Maricopa County - Low Series, 2015-2050 Projections (XLSX 128 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04015-low-series2015.xlsx" target="_blank">Mohave County - Low Series, 2015-2050 Projections (XLSX 128 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04017-low-series2015.xlsx" target="_blank">Navajo County - Low Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04019-low-series2015.xlsx" target="_blank">Pima County - Low Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04021-low-series2015.xlsx" target="_blank">Pinal County - Low Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04023-low-series2015.xlsx" target="_blank">Santa Cruz County - Low Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04025-low-series2015.xlsx" target="_blank">Yavapai County - Low Series, 2015-2050 Projections (XLSX 128 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04027-low-series2015.xlsx" target="_blank">Yuma County - Low Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<h3>High Series:</h3>
+<p><a href="/sites/default/files/documents/files/pop-prj-04-high-series2015.xlsx" target="_blank">Arizona - High Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04001-high-series2015.xlsx" target="_blank">Apache County - High Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04003-high-series2015.xlsx" target="_blank">Cochise County - High Series, 2015-2050 Projections (XLSX 132 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04005-high-series2015.xlsx" target="_blank">Coconino County - High Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04007-high-series2015.xlsx" target="_blank">Gila County - High Series, 2015-2050 Projections (XLSX 128 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04009-high-series2015.xlsx" target="_blank">Graham County - High Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04011-high-series2015.xlsx" target="_blank">Greenlee County - High Series, 2015-2050 Projections (XLSX 128 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04012-high-series2015.xlsx" target="_blank">La Paz County - High Series, 2015-2050 Projections (XLSX 128 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04013-high-series2015.xlsx" target="_blank">Maricopa County - High Series, 2015-2050 Projections (XLSX 128 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04015-high-series2015.xlsx" target="_blank">Mohave County - High Series, 2015-2050 Projections (XLSX 128 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04017-high-series2015.xlsx" target="_blank">Navajo County - High Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04019-high-series2015.xlsx" target="_blank">Pima County - High Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04021-high-series2015.xlsx" target="_blank">Pinal County - High Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04023-high-series2015.xlsx" target="_blank">Santa Cruz County - High Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04025-high-series2015.xlsx" target="_blank">Yavapai County - High Series, 2015-2050 Projections (XLSX 128 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04027-high-series2015.xlsx" target="_blank">Yuma County - High Series, 2015-2050 Projections (XLSX 129 KB)</a></p>
+<h3>ALL TABLES</h3>
+<p><a href="/sites/default/files/documents/files/pop-prj-04cnt-15-50.zip">2015-2050 Excel Tables in a Zip File (ZIP 5607 KB)</a></p>
+<hr /><p><strong>2016-2050 SUB-COUNTY POPULATION PROJECTIONS</strong></p>
+<p><strong>The sub-county projections available in the tables below were produced in accordance with the official 2015 medium series county population projections.</strong></p>
+<h3>TABLES BY COUNTY</h3>
+<p>Annual projections are available for all incorporated places and unincorporated balances of county in Arizona for 2016-2050. For most counties, projections are also available for Indian reservations and census designated places with a Census 2010 population of 500 or more. Population projections and methodology statements for Maricopa, Pima, and Pinal counties were produced by their respective regional councils of governments. Additional information for these counties can be found in the related links in the sidebar.</p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04001citir-16-50.xlsx" target="_blank">Apache County - 2016-2050 Projections (XLSX 27 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04003citir-16-50.xlsx" target="_blank">Cochise County - 2016-2050 Projections (XLSX 21 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04005citir-16-50.xlsx" target="_blank">Coconino County - 2016-2050 Projections (XLSX 26 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04007citir-16-50.xlsx" target="_blank">Gila County - 2016-2050 Projections (XLSX 23 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04009citir-16-50.xlsx" target="_blank">Graham County - 2016-2050 Projections (XLSX 17 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04011citir-16-50_revised.xlsx" target="_blank">Greenlee County - 2016-2050 Projections (XLSX 13 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04012citir-16-50.xlsx" target="_blank">La Paz County - 2016-2050 Projections (XLSX 19 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04013-2016-2050-SocioEconNum-Final.pdf" target="_blank">Maricopa County - 2016-2050 Projections (PDF 1.8 MB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04015citir-16-50.xlsx" target="_blank">Mohave County - 2016-2050 Projections (XLSX 24 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04017citir-16-50.xlsx" target="_blank">Navajo County - 2016-2050 Projections (XLSX 33 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04019inc-16-50.xlsx" target="_blank">Pima County - 2016-2050 Projections (XLSX 30 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04021-AnnPlcPrjNum.xlsx" target="_blank">Pinal County - 2016-2050 Projections (XLSX 13 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04023citir-16-50.xlsx" target="_blank">Santa Cruz County - 2016-2050 Projections (XLSX 12 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04025citir-16-50.xlsx" target="_blank">Yavapai County - 2016-2050 Projections (XLSX 27 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04027citir-16-50.xlsx" target="_blank">Yuma County - 2016-2050 Projections (XLSX 23 KB)</a></p>
+<h3>ALL TABLES AND DOCUMENTS</h3>
+<p><a href="/sites/default/files/documents/files/pop-prj-04citir-16-50.zip">2016-2050 Projections: All tables and documents in a zip file (ZIP 23 MB)</a></p>
+</div></div></div>          </div>
+
+    
+  </div>
+</div>  </div>
+</div>
+</div>  </div>
+
+      </div>
+    </div>
+
+
+          <aside id="sidebar-second" class="col-sm-4 col-md-4 main-region">
+          <div class="region region-sidebar-second">
+    
+<section id="block-block-6" class="block block-block">
+<div class="block-inner clearfix">
+        <h2 class="block-title">Projections Methodology</h2>
+    
+  <div class="content" >
+    <p><a href="/sites/default/files/documents/files/pop-prj-state-county-2015methodology.pdf" target="_blank">Arizona State and County Population Projections Methodology, 2015-2050 (PDF 876 KB)</a></p>
+<p><strong>2016 Sub-county Projections Methodology:</strong></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04_16-50-SubCntyMethodology.pdf" target="_blank">Arizona Sub-County Population Projections Methodology 2016-2050 (PDF 204 KB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04013-2016-2050-SocioEconMethodology-Final.pdf" target="_blank">Maricopa County and Pinal County - Socioeconomic Projections Documentation from MAG (PDF 22 MB)</a></p>
+<p><a href="/sites/default/files/documents/files/pop-prj-04019-2016-2050-PrjMethodology.pdf" target="_blank">Pima County - Methods for Producing 2016 Sub-County Population Projections for Jurisdictions in Pima County from PAG (PDF 192 KB)</a></p>
+  </div>
+</div>
+</section>
+<section id="block-block-7" class="block block-block">
+<div class="block-inner clearfix">
+        <h2 class="block-title">Projections Related Links</h2>
+    
+  <div class="content" >
+    <p><a href="http://www.census.gov/population/projections/" target="_blank">Census Bureau Projections</a> [CENSUS.GOV]</p>
+<p><a href="http://www.azmag.gov/Projects/Project.asp?CMSID=1132&amp;MID=Information%20Services" target="_blank">Maricopa Association of Governments</a> [AZMAG.GOV]</p>
+<p><a href="http://www.pagnet.org/RegionalData/Demographics/PopulationProjections/tabid/588/Default.aspx" target="_blank">Pima Association of Governments</a> [PAGNET.ORG]</p>
+  </div>
+</div>
+</section>  </div>
+      </aside>
+      </div>
+
+  <div id="postscript-group" class="single-postscript clearfix">
+                  </div>
+
+</div><div id="zone-footer" class="zone">
+        <div id="footer-first-contact" class="clearfix ">
+      <div id="footer-branding" class="content clearfix">
+      <div class="footer-wrapper">
+                <div class="site-info">
+          <div class="site-name footer-field">
+            Office of Economic Opportunity          </div>
+          <div class="site-slogan footer-field">
+            Arizona Population          </div>
+        </div>
+      </div>
+    </div>
+  <!--  <div id="footer-spacer"></div>-->
+      <div id="footer-contact">
+
+              <div class="footer-title footer-field">
+          <a href="/contact-us">
+            Contact Us          </a>
+        </div>
+      
+
+      <div class="footer-info clearfix">
+        <div class="footer-address clearfix">
+          <div class="footer-address-group footer-group">
+
+                          <div class="footer-agency footer-field">
+                Office of Economic Opportunity              </div>
+            
+                          <div class="footer-address-1 footer-field">
+                100 North 15th Ave, Suite 103              </div>
+            
+                          <div class="footer-address-2 footer-field">
+                Phoenix, Arizona 85007               </div>
+            
+                          <div class="footer-map-link footer-field">
+                <a href="https://www.google.com/maps/place/100+N+15th+Ave+%23440/@33.4490935,-112.0926353,17z/data=!3m1!4b1!4m2!3m1!1s0x872b122d08c1eb47:">
+                  Find in Google Maps
+                </a>
+              </div>
+            
+          </div>
+          <div class="footer-phone-group footer-group">
+
+                          <div class="footer-phone footer-field">
+                <strong>Phone: </strong>602-771-2222              </div>
+            
+            
+          </div>
+        </div>
+
+                  <div class="footer-map  footer-group">
+            <a href="https://www.google.com/maps/place/100+N+15th+Ave+%23440/@33.4490935,-112.0926353,17z/data=!3m1!4b1!4m2!3m1!1s0x872b122d08c1eb47:">
+              <img src="https://population.az.gov/sites/default/files/theme-settings/population_map.jpg" alt="Map Image">
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>        <div id="region-footer-second">
+        <div class="region region-footer-second">
+    
+<section id="block-menu-menu-footer-utility" class="block block-menu">
+<div class="block-inner clearfix">
+        <h2 class="block-title">Footer Utility</h2>
+    
+  <div class="content" >
+    <ul class="menu nav"><li class="first leaf menu-li-statewide-policies"><a href="http://az.gov/policies" title="">Statewide Policies</a></li>
+<li class="leaf menu-li-site-map"><a href="/sitemap" title="Office of Employment &amp; Population Statistics Site Map">Site Map</a></li>
+<li class="last leaf menu-li-about-us"><a href="/about-us" title="">About Us</a></li>
+</ul>  </div>
+</div>
+</section>  </div>
+    </div>
+  </div></div>  <script src="https://population.az.gov/sites/default/files/js/js_L50O_PWoAuMOxVjnzZCkNSSmI0kFwhZsO1_KS8WnGKw.js"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"a5f32161db","applicationID":"10828157","transactionName":"NAMAbRNZW0dYV0UKXA1JN0sIFxpdV1BUGx0TDhI=","queueTime":0,"applicationTime":14,"atts":"GEQDG1tDSEk=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

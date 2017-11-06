@@ -1,0 +1,44 @@
+setwd("C:\\Users\\dta01\\Desktop\\CSE578\\Project\\FinalDeliverables\\Streamgraph")
+
+==================================================
+Cluster using average AD population and average 
+cost per state Single Link
+==================================================
+> df <- read.table("clustering_average_2015to2017.txt",header=FALSE)
+> x <- as.matrix(df[,2:9])
+> clusters <- hclust(dist(x[, 7:8]),method = 'single')
+> plot(clusters)
+> clusterCut <- cutree(clusters, k=6:8)
+> write.table(db$cluster, "Single_Link_Clustering_Result.txt", sep=" ")
+> pairs(x[,7:8],col=clusterCut[,1]+1L)
+> pairs(x[,7:8],col=clusterCut[,2]+1L)
+> pairs(x[,7:8],col=clusterCut[,3]+1L)
+
+
+==================================================
+Cluster using average AD population and average 
+cost per state Complete Link
+==================================================
+> df <- read.table("clustering_average_2015to2017.txt",header=FALSE)
+> x <- as.matrix(df[,2:9])
+> clusters <- hclust(dist(x[, 7:8]),method = 'complete')
+> plot(clusters)
+> clusterCut <- cutree(clusters, k=6:8)
+> write.table(db$cluster, "Complete_Link_Clustering_Result.txt", sep=" ")
+> pairs(x[,7:8],col=clusterCut[,1]+1L)
+> pairs(x[,7:8],col=clusterCut[,2]+1L)
+> pairs(x[,7:8],col=clusterCut[,3]+1L)
+
+==================================================
+Cluster using average AD population and average 
+cost per state Average Link
+==================================================
+> df <- read.table("clustering_average_2015to2017.txt",header=FALSE)
+> x <- as.matrix(df[,2:9])
+> clusters <- hclust(dist(x[, 7:8]),method = 'average')
+> plot(clusters)
+> clusterCut <- cutree(clusters, k=6:8)
+> write.table(db$cluster, "Average_Link_Clustering_Result.txt", sep=" ")
+> pairs(x[,7:8],col=clusterCut[,1]+1L)
+> pairs(x[,7:8],col=clusterCut[,2]+1L)
+> pairs(x[,7:8],col=clusterCut[,3]+1L)

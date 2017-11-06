@@ -1,0 +1,31 @@
+
+.bubble{
+    margin-top: 30px;
+    width:  49%;
+    float: left;
+}
+.choropleth{
+    margin-top: 30px;
+    width: 49%;
+    float: left;
+}
+#menu1{
+    float: left;
+    margin-right: 10px;
+}
+#menu2{
+    float: left;
+}
+#menu{
+    width: 500px;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+#map-vis{
+    margin-top: 35px;
+}
+#inter-bubble{
+    width: 500px;
+    margin: 0 auto;
+}
+
