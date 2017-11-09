@@ -2,7 +2,7 @@
 Visualizing Current and Future Impact of Alzheimer’s Disease(AD)  
 Link: https://zishanfu.github.io/Visualization-of-Alzheimer-s-Disease/index.html  
 
-### Visualization Objectives
+### Visualization Objectives :moneybag:
 * Target Audience
     * Federal and State Government
     * General tax payer population
@@ -20,7 +20,7 @@ Link: https://zishanfu.github.io/Visualization-of-Alzheimer-s-Disease/index.html
     * States that are impacted the most in terms of health spending and AD population
 
 ### Summary and Explaination
-:one:Overview: Interactive Multivariate Bubble Chart  
+:boom: Overview: Interactive Multivariate Bubble Chart  
 When the mouse is over the bubble, the information of AD numbers, costs in AD, slope and health spending will be display. Chart can be zoom in by mouse and be filter by the scroll bar below the chart.  
 
 :question: How to get insights from those charts:confused:   
@@ -33,28 +33,28 @@ When the mouse is over the bubble, the information of AD numbers, costs in AD, s
 
 [![bubble](/pic/bubble.png)](https://zishanfu.github.io/Visualization-of-Alzheimer-s-Disease/index.html)
 
-:two:Choropleth Maps  
+:boom: Choropleth Maps  
 This map shows projected increase of AD prevalence by state from 2016 to 2025. We can more readily observe the clusters of neighboring states that share similar projected AD prevalence. This immediately gives you a good idea of states to target for increasing healthcare spending to support AD caregiving. Hovering above the states give you the exact increase percentage as well as actual projected AD prevalence data. 
 
 [![map](/pic/map.png)](https://zishanfu.github.io/Visualization-of-Alzheimer-s-Disease/choropleth.html)
 
-:three:Interaction Graph  
+:boom: Interaction Graph  
 Interaction Graph combines choropleth map and bubble chart. You can not only use zoom and filter manipulate the graph, but also can select state and year combination to see more information.
 
 [![map](/pic/interaction.png)](https://zishanfu.github.io/Visualization-of-Alzheimer-s-Disease/interact.html)
 
-:four:Facts Graph  
+:boom: Facts Graph  
 This is the facts section of our visualization which is meant to provide the user with quick facts.  
 On the left is the Wordle created by Joena using care giver’s blog. We can see words describing symptoms of AD appearing frequently along with “caregiving” “worsen” “daily”.  
 On the right we show estimated lifetime risks of AD by age and gender. You can see that women are at higher risk than men across all three ages.  
 
 [![map](/pic/info.png)](https://zishanfu.github.io/Visualization-of-Alzheimer-s-Disease/facts.html)
 
-:five:Stream Graph  
+:boom: Stream Graph  
 For Exploring the current and projected AD population data and Caregiving Cost Data, we use a stream graph layout. We can look at state population data from the US census projections, filtered by age to include only 65 & and above, over time. The black lines mark key points for the baby boomer generations. 2011 is when the first baby boomers begin retiring and 2029 is when all the baby boomers reach retirement age. We can also switch to projected healthcare spending cost data set. We can also filter and zoom based on clustering of data to reduce the cluttering.  
 
 [![map](/pic/stream.png)](https://zishanfu.github.io/Visualization-of-Alzheimer-s-Disease/stream.html)
 
 ### Summary and Explaination
 Want more details about this project:question:  
-Contact author to get more funning insights about visualization of alzheimer's disease!
+Contact author to get more deep insights about visualization of alzheimer's disease!
