@@ -55,6 +55,6 @@ For Exploring the current and projected AD population data and Caregiving Cost D
 
 [![map](/pic/stream.png)](https://zishanfu.github.io/Visualization-of-Alzheimer-s-Disease/stream.html)
 
-### Summary and Explaination
+### Questions
 Want more details about this project:question:  
 Contact author to get more deep insights about visualization of alzheimer's disease!
