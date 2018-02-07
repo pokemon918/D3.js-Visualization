@@ -1,6 +1,5 @@
 # Visualization of Alzheimer's Disease
-Visualizing Current and Future Impact of Alzheimer’s Disease(AD)  
-Link: https://zishanfu.github.io/Visualization-of-Alzheimer-s-Disease/index.html  
+Visualizing Current and Future Impact of Alzheimer’s Disease(AD) [Link](https://zishanfu.github.io/Visualization-of-Alzheimer-s-Disease/index.html)
 
 ### Visualization Objectives :moneybag:
 * Target Audience
