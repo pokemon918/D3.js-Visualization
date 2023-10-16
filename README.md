@@ -1,4 +1,4 @@
-# Visualization of Alzheimer's Disease
+# Visualization of Alzheimer's Disease with D3.js
 Visualizing Current and Future Impact of Alzheimer’s Disease(AD) [Link](https://zishanfu.github.io/Visualization-of-Alzheimer-s-Disease/index.html)
 
 ### Visualization Objectives :moneybag:
